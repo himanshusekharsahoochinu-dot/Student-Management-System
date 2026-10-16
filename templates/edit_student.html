@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+
+{% block title %}Edit Student | Student Manager{% endblock %}
+
+{% block content %}
+<section class="form-panel">
+    <h1>Edit Student</h1>
+    <p>Update the student's information.</p>
+
+    <form method="POST"
+          action="{{ url_for('edit', student_id=student['id']) }}">
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name"
+               value="{{ student['name'] }}"
+               maxlength="100" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age"
+               value="{{ student['age'] }}"
+               min="1" max="120" required>
+
+        <label for="course">Course</label>
+        <input type="text" id="course" name="course"
+               value="{{ student['course'] }}"
+               maxlength="100" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email"
+               value="{{ student['email'] }}"
+               maxlength="150" required>
+
+        <button type="submit" class="button">
+            Update Student
+        </button>
+
+        <a class="cancel-link" href="{{ url_for('students') }}">
+            Cancel
+        </a>
+    </form>
+</section>
+{% endblock %}
