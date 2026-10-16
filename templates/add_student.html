@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block title %}Add Student | Student Manager{% endblock %}
+
+{% block content %}
+<section class="form-panel">
+    <h1>Add New Student</h1>
+    <p>Enter the student's details below.</p>
+
+    <form method="POST" action="{{ url_for('add') }}">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name"
+               maxlength="100" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age"
+               min="1" max="120" required>
+
+        <label for="course">Course</label>
+        <input type="text" id="course" name="course"
+               maxlength="100" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email"
+               maxlength="150" required>
+
+        <button type="submit" class="button">Save Student</button>
+        <a class="cancel-link" href="{{ url_for('students') }}">
+            Cancel
+        </a>
+    </form>
+</section>
+{% endblock %}
